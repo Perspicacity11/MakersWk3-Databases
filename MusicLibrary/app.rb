@@ -3,10 +3,12 @@ require_relative 'lib/album_repository'
 
 DatabaseConnection.connect('music_library')
 
-# album_repository.all.each do |album|
-#   p album.all
-# end
+seed_sql = File.read('spec/seeds_music_library.sql')
+connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library' })
+connection.exec(seed_sql)
 
 album_repo = AlbumRepository.new
 
-p album_repo.all
+album_repo.all.each do |album|
+  p album
+end
