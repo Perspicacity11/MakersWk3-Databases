@@ -12,9 +12,9 @@ CREATE TABLE "public"."books" (
     PRIMARY KEY ("id")
 );
  
-INSERT INTO "public"."books" ("id", "title", "author_name") VALUES
-(1, 'Nineteen Eighty-Four', 'George Orwell'),
-(2, 'Mrs Dalloway', 'Virginia Woolf'),
-(3, 'Emma', 'Jane Austen'),
-(4, 'Dracula', 'Bram Stoker'),
-(5, 'The Age of Innocence', 'Edith Wharton');
+INSERT INTO "public"."books" ("title", "author_name") VALUES
+('Nineteen Eighty-Four', 'George Orwell'),
+('Mrs Dalloway', 'Virginia Woolf'),
+('Emma', 'Jane Austen'),
+('Dracula', 'Bram Stoker'),
+('The Age of Innocence', 'Edith Wharton');

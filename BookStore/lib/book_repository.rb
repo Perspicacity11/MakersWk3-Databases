@@ -29,22 +29,19 @@
     end
 
     def create(book)
-        sql = "INSERT INTO books (title, author_name) VALUES('#{book.title}', '#{book.author_name}')"
-        result_set = DatabaseConnection.exec_params(sql, [])
-        return result_set
+        sql = "INSERT INTO books (title, author_name) VALUES($1, $2);"
+        DatabaseConnection.exec_params(sql, [book.title, book.author_name])
      end
 
 
     def update(book, column_name, new_value)
         sql = "UPDATE books SET #{column_name} = '#{new_value}';"
-        result_set = DatabaseConnection.exec_params(sql, [])
-        return result_set
+        DatabaseConnection.exec_params(sql, [])
     end
        
-    def delete(title)
-        sql = "DELETE FROM books WHERE title = '#{title}'"
-        result_set = DatabaseConnection.exec_params(sql, [])
-        return result_set
+    def delete(id)
+        sql = "DELETE FROM books WHERE id = $1"
+        DatabaseConnection.exec_params(sql, [id])
     end
 
 end

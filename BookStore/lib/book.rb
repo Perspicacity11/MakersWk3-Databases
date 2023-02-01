@@ -1,5 +1,3 @@
  class Book 
-    attr_accessor :title, :author_name
+    attr_accessor :id, :title, :author_name
  end
-
-

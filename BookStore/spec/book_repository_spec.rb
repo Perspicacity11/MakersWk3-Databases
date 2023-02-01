@@ -33,7 +33,7 @@ it "creates a new book and then returns its title" do
     newbook.title = "Fahrenheit 451"
     newbook.author_name = "Ray Bradbury"
     repo1.create(newbook)
-    selection = repo1.find(5)
+    selection = repo1.find(6)
     expect(selection.title).to eq "Fahrenheit 451"
     expect(selection.author_name).to eq "Ray Bradbury"
 end
@@ -47,7 +47,7 @@ end
 
 it "deletes book Dracula" do
     repo1 = BookRepository.new
-    repo1.delete("Dracula")
+    repo1.delete(4)
     albums = repo1.all
     expect(albums.length).to eq 4
 end
