@@ -3,7 +3,7 @@ require 'album'
 
 def reset_table
     seed_sql = File.read('spec/seeds_music_library.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library' })
+    connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
     connection.exec(seed_sql)
   end
 
@@ -51,7 +51,7 @@ RSpec.describe AlbumRepository do
 
     it "deletes album Favourite Worst Nightmare" do
         repo1 = AlbumRepository.new
-        repo1.delete("Favourite Worst Nightmare")
+        repo1.delete("Humbug")
         albums = repo1.all
         expect(albums.length).to eq 8
     end
